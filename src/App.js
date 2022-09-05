@@ -51,6 +51,8 @@ const [ready,settingReady] = useState(false)
           y = <Card  pic={item.images.jpg.image_url}
           title={item.title}
           episode={item.episodes}
+          // gernes={} needs to loop into the array , 
+          // but because of concastination all the gernes are displaying 
           rating={item.score}
           year={item.year}/>
         )

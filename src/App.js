@@ -9,41 +9,64 @@ import { useEffect,useState } from 'react';
 function App() {
 let y ;
 const [info,settingInfo] = useState([]) 
-const [ready,settingReady] = useState(true)
+const [ready,settingReady] = useState(false)
 
-      async function getData() {
-      settingReady(false);
-        try{
-          const res = await fetch("https://api.jikan.moe/v4/top/anime")
-          const data = await res.json()
-          settingInfo(data)
-
-      console.log(data.data[0].title)//working 
-      console.log(info.data)//not working ?
-
-      Object.keys(info.data).forEach(item => {
-        return(
-          y = <Card title={item.title}//cant display y into the component 
-                    
-          />
-        )
-      })
       
-   
+    //   settingReady(false);
     
-    settingReady(true)
-        }
-        catch(error){
-          console.log(error)
-        }
-     
-      }
+         
+
+    //   console.log(data.data[0].title)//working 
+    //   console.log(info.data)//not working ?
+
+    //   Object.keys(info.data).forEach(item => {
+    //     return(
+    //       y = <Card title={item.title}//cant display y into the component 
+                    
+    //       />
+    //     )
+    //   })
+      
+      
+    
+    // settingReady(true)
+        
+       
   useEffect(() => {
-    getData()  
+    fetch("https://api.jikan.moe/v4/top/anime")
+    .then(res => res.json())
+    .then(data => settingInfo(data))
+    if(info){
+      settingReady(true)
+    }
+      
   },[]);
 
-  
+  function render (){
+    if(Object.keys(info).length > 0){
+      
+      console.log(info.data)
+      info.data.map((item)=>{
+        return (
+          y = <Card  pic={item.images.jpg.image_url}
+          title={item.title}
+          episode={item.episodes}
+          rating={item.score}
+          year={item.year}/>
+        )
+      })
 
+  }
+ 
+  }
+
+  const myTimeout = setTimeout(render(), 5000);
+
+    function myStopFunction() {
+     clearTimeout(myTimeout);
+ }
+ myStopFunction();
+ 
   return (
     <div>
       <Header />

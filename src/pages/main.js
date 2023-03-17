@@ -1,5 +1,4 @@
 import React from 'react'
-import './index.css'
 import pic from './images/2.jpg'
 
 export default function Main(props) {

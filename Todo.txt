@@ -1,0 +1,5 @@
+1.add other pages (all anime,manga)
+2.make hovering effects on cards and links with respective to there pages 
+3.responsiveness 
+4.add cotent in footer and above footer
+5.add icons 

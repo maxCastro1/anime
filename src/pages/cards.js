@@ -1,12 +1,12 @@
 import React from 'react'
 
-export default function card(props) {
+export default function Card(props) {
     return (
         <>
             <div className="treding-cont">
                 <img src={props.pic} alt='anime' />
                 <div className='treding-cont-middle'>
-                    <p className='title'>{props.title}</p>
+                    <p className='title'><b>{props.title}</b></p>
                     <span className='episode'>Episode: {props.episode}</span>
                     <span className='genre'>Gerne: {props.genre}</span>
                     <div className='treding-cont-lower'>
